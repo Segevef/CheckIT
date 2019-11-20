@@ -1,29 +1,45 @@
 import React from 'react';
-import { Container, Header, Left, Body, Right, Title, Subtitle, Button } from 'native-base';
-
+import { StyleSheet, StatusBar } from 'react-native';
+import { Container, Header, Left, Body, Right, Title, Subtitle, Button, Icon } from 'native-base';
+import Colors from '../constants/colors.js'
 export default function AppHeader () {
 
     return (
-     <Container>
-        <Header>
-        <Left>
+     <Container >
+        <Header style={styles.header}>
+          <Left>
             <Button transparent>
-              <Icon name='bars' />
+              <Icon name='menu'/>
             </Button>
           </Left>
-          <Body>
-            <Title>CheckIT</Title>
-            <Subtitle>Protect Your Cash Flow</Subtitle>
+          <Body style={styles.body}>
+            <Title>Check Your Checks</Title>
           </Body>
           <Right>
             <Button transparent>
-              <Icon name='search' />
+              <Icon name='search'/>
             </Button>
             <Button transparent>
-              <Icon name='more' />
+              <Icon name="more"/>
             </Button>
           </Right>
         </Header>
        </Container>
     );
 }
+
+const styles = StyleSheet.create({
+
+  header: {
+    marginTop: StatusBar.currentHeight,
+    backgroundColor: Colors.primary,
+  },
+  body: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: "space-around",
+    alignItems: 'center'
+  },
+
+
+})
