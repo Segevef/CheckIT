@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-tabbar-bottom
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-elements
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\user\bin;C:\Python27;C:\Python27\Scripts;C:\Users\user\Anaconda3\Scripts;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk-9.0.1\bin;C:\cygwin64\bin;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\user\Anaconda3\DLLs;C:\Users\user\AppData\Local\Programs\Python\Python37-32\DDLs;C:\Program Files\JetBrains\PyCharm Community Edition 2019.1.1\bin;C:\Users\user\AppData\Local\Yarn\bin;C:\Users\user\AppData\Roaming\npm
@@ -34,9 +34,14 @@ npm manifest:
       "react": "16.8.3",
       "react-dom": "16.8.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+      "react-native-data-table": "^0.2.1",
       "react-native-elements": "^1.2.7",
+      "react-native-material-ripple": "^0.9.1",
       "react-native-navigation": "^3.6.0",
+      "react-native-paper": "^3.2.1",
       "react-native-side-menu": "^1.1.3",
+      "react-native-tabbar-bottom": "^1.0.4",
+      "react-native-table-component": "^1.2.1",
       "react-native-typography": "^1.4.1",
       "react-native-web": "^0.11.7",
       "react-navigation": "^4.0.10",
@@ -1080,6 +1085,11 @@ Lockfile:
     dependencies:
       mime-types "~2.1.24"
       negotiator "0.6.2"
+  
+  adb@^0.2.0:
+    version "0.2.0"
+    resolved "https://registry.yarnpkg.com/adb/-/adb-0.2.0.tgz#622d803b3fcc0d004751fc07661856442e3eb3c1"
+    integrity sha1-Yi2AOz/MDQBHUfwHZhhWRC4+s8E=
   
   ansi-colors@^1.0.1:
     version "1.1.0"
@@ -4521,6 +4531,13 @@ Lockfile:
     dependencies:
       prop-types "^15.6.2"
       react-native-iphone-x-helper "^1.0.3"
+  
+  react-native-material-ripple@^0.9.1:
+    version "0.9.1"
+    resolved "https://registry.yarnpkg.com/react-native-material-ripple/-/react-native-material-ripple-0.9.1.tgz#db1ad9dd7cf97011e4cd8475ae2041ade0f891cb"
+    integrity sha512-dHjARdKoGD3LXwPh2TkURabywM5BfdpKc/AHplJTfBMalhVZ2bc7iJoJmNhNnmT/TZ+B3szL6uV1mO7Pv8zNeA==
+    dependencies:
+      prop-types "^15.5.10"
   
   react-native-navigation@^3.6.0:
     version "3.6.0"
