@@ -1,45 +1,50 @@
-import React from 'react';
-import { StyleSheet, StatusBar } from 'react-native';
-import { Container, Header, Left, Body, Right, Title, Subtitle, Button, Icon } from 'native-base';
-import Colors from '../constants/colors.js'
-export default function AppHeader () {
-
-    return (
-     <Container >
-        <Header style={styles.header}>
-          <Left>
-            <Button transparent>
-              <Icon name='menu'/>
-            </Button>
-          </Left>
-          <Body style={styles.body}>
-            <Title>Check Your Checks</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon name='search'/>
-            </Button>
-            <Button transparent>
-              <Icon name="more"/>
-            </Button>
-          </Right>
-        </Header>
-       </Container>
-    );
+import React from "react";
+import { StyleSheet, StatusBar } from "react-native";
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Right,
+  Title,
+  Button,
+  Icon
+} from "native-base";
+import Colors from "../constants/colors.js";
+export default function AppHeader() {
+  return (
+    <Container>
+      <Header style={styles.header}>
+        <Left>
+          <Button transparent>
+            <Icon name="menu" />
+          </Button>
+        </Left>
+        <Body style={styles.body}>
+          <Title>Check Your Checks</Title>
+        </Body>
+        <Right>
+          <Button transparent>
+            <Icon name="search" />
+          </Button>
+          <Button transparent>
+            <Icon name="more" />
+          </Button>
+        </Right>
+      </Header>
+    </Container>
+  );
 }
 
 const styles = StyleSheet.create({
-
   header: {
     marginTop: StatusBar.currentHeight,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.primary
   },
   body: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     alignContent: "space-around",
-    alignItems: 'center'
-  },
-
-
-})
+    alignItems: "center"
+  }
+});
