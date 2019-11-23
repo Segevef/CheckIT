@@ -3,11 +3,10 @@ import { Image, StyleSheet } from "react-native";
 import { Container, Card, CardItem, Text, Body, View } from "native-base";
 import Colors from "../constants/colors.js";
 
-export default function CheckCard(props) {
+export default function CheckCard({name, amount , date, isDeposited}) {
   return (
-    <Container>
       <Card>
-        <CardItem button onPress={() => alert("This is Card Body")}>
+        <CardItem button onPress={() => alert(`More details on ${name}'s check`)}>
           <Body>
             <View style={styles.body}>
               <Image
@@ -21,26 +20,25 @@ export default function CheckCard(props) {
                   marginLeft: 25
                 }}
               >
-                <Text>{props.name}</Text>
-                <Text>{props.amount}</Text>
+                <Text>{name}</Text>
+                <Text>{amount}</Text>
 
-                <Text>{props.date}</Text>
+                <Text>{date}</Text>
                 <Text
                   style={
                     ({ fontSize: 10 },
-                    props.isDeposited
+                    isDeposited
                       ? { color: "green" }
-                      : { color: "yellow" })
+                      : { color: "red" })
                   }
                 >
-                  {props.isDeposited}
+                  {isDeposited ? "Deposited" : "Not Deposited"}
                 </Text>
               </View>
             </View>
           </Body>
         </CardItem>
       </Card>
-    </Container>
   );
 }
 

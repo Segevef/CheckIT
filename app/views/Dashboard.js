@@ -1,27 +1,33 @@
-import React from "react";
+import React, {useEffect} from "react";
 import CheckCard from "../sections/CheckCard.js";
-import { ScrollView, ListView } from "react-native";
-import MockData from "../constants/mockData.js";
+import { ScrollView, ListView, View,Text } from "react-native";
+import { List, ListItem} from 'react-native-elements';
+import mockData from "../constants/mockData.js";
 
 export default function Dashboard() {
-  const data = MockData.data;
-
+    
   return (
-    <ScrollView>
-      <ListView>
-        {MockData ? (
-          data.map(check => (
-            <CheckCard
-              name={check.name}
-              amount={check.amount}
-              data={check.date}
-              isDeposited={check.isDeposited}
-            />
-          ))
-        ) : (
-          <Text>Data missing...</Text>
-        )}
-      </ListView>
-    </ScrollView>
+    <View style={{flex: 1}}>
+        <View style={{flex: 2}}>
+            <ScrollView >
+                {mockData ? (
+                    mockData.map( (check, key) => {
+                        return (
+                            <CheckCard
+                                key={key}
+                                name={check.name}
+                                amount={check.amount}
+                                date={check.date}
+                                isDeposited={check.isDeposited}
+                            />
+                        )
+                    })
+                    ) : <Text>Loading....</Text>}
+            </ScrollView>
+        </View>
+        <View style={{flex: 1}}>
+            <Text>BlaBla</Text>
+        </View>
+    </View>
   );
 }
