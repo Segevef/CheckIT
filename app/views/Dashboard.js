@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 import CheckCard from "../sections/CheckCard.js";
-import { ScrollView, ListView, View,Text } from "react-native";
-import { List, ListItem} from 'react-native-elements';
+import { ScrollView, View,Text } from "react-native";
 import mockData from "../constants/mockData.js";
 
 export default function Dashboard() {

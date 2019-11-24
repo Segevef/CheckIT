@@ -1,9 +1,12 @@
 import React from 'react';
+import { I18nManager } from 'react-native';
 import { AppLoading } from 'expo';
 import { Container, Text } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import Home from './app/views/Home.js';
+
+I18nManager.allowRTL(false);
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +17,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
+    
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),

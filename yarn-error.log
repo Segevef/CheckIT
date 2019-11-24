@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-elements
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add expo-permissions@~7.0.0
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\user\bin;C:\Python27;C:\Python27\Scripts;C:\Users\user\Anaconda3\Scripts;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk-9.0.1\bin;C:\cygwin64\bin;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\user\Anaconda3\DLLs;C:\Users\user\AppData\Local\Programs\Python\Python37-32\DDLs;C:\Program Files\JetBrains\PyCharm Community Edition 2019.1.1\bin;C:\Users\user\AppData\Local\Yarn\bin;C:\Users\user\AppData\Roaming\npm
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\user\react_native_projects\CheckIt\node_modules\@babel\generator\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\user\react_native_projects\CheckIt\node_modules\@babel\runtime\node_modules\regenerator-runtime'
 
 npm manifest: 
   {
@@ -30,12 +30,14 @@ npm manifest:
       "adb": "^0.2.0",
       "expo": "^35.0.0",
       "expo-font": "~7.0.0",
+      "fusioncharts": "^3.14.1",
       "native-base": "^2.13.8",
       "react": "16.8.3",
       "react-dom": "16.8.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
       "react-native-data-table": "^0.2.1",
       "react-native-elements": "^1.2.7",
+      "react-native-fusioncharts": "^4.1.1",
       "react-native-material-ripple": "^0.9.1",
       "react-native-navigation": "^3.6.0",
       "react-native-paper": "^3.2.1",
