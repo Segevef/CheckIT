@@ -3,10 +3,13 @@ import { View, Button, Text, StyleSheet, Image, Alert } from 'react-native';
 import Colors from '../constants/colors.js'
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
+import CheckInput from '../sections/CheckInput.js';
 
 export default function ImgPicker () {
 
     const [pickedImage, setPickedImage] = useState();
+    const [isPickedImage, setIsPickedImage] = useState(false);
+    
 
     const verifyPermissions = async () => {
         const result = await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL);
@@ -28,26 +31,58 @@ export default function ImgPicker () {
             aspect: [16,9],
             quality: 0.8
         });
+        console.log(image);
         setPickedImage(image.uri);
+        setIsPickedImage(true);
+        renderCheckInput()
+    }
+
+
+    const renderCheckInput = () => {
+        return (
+             <CheckInput imageUri={pickedImage} />
+            ) 
     }
 
     return (
         <View style={styles.imagePicker}>
+            {isPickedImage 
+            ?   <Button 
+                    title="Take Another Photo" 
+                    color={Colors.primary} 
+                    onPress={takeImageHandler} 
+                    style={styles.button}
+                />
+            :   <Button 
+                    title="Add New Check" 
+                    color={Colors.primary} 
+                    onPress={takeImageHandler} 
+                    style={styles.button}
+                />
+            }
             <View style={styles.imagePreview}>
                 {!pickedImage ? ( 
-                    <Text>No image picked yet.</Text>
+                    <Text>No check picked yet.</Text>
                 ) : (
                     <Image 
                         style={styles.image} 
                         source={{uri: pickedImage}}
                     />
                 )}
-                <Button 
-                    title="Take Image" 
-                    color={Colors.primary} 
-                    onPress={takeImageHandler} 
-                />
+
             </View>
+            <View style={styles.imagePreview}>
+                {isPickedImage ? renderCheckInput() 
+                               : <Image style={styles.image} source={require("../resources/img/money.jpg")}/>} 
+{/* 
+                {isPickedImage 
+                ? (
+                    image ? <CheckInput imageUri={image.uri} />
+                          : <CheckInput />
+                ) 
+                : <Image style={styles.image} source={require("../resources/img/money.jpg")}/>} */}
+            </View>
+            
         </View>
     );
 }
@@ -63,14 +98,17 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: Colors.accent,
+        borderColor: Colors.primary,
         borderWidth: 1
 
     },
     image: {
         width: "100%",
         height: "100%",
-
+    },
+    button: {
+        marginBottom: 10
     }
+    
 
 })
