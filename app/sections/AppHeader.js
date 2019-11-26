@@ -21,7 +21,7 @@ export default function AppHeader() {
           </Button>
         </Left>
         <Body style={styles.body}>
-          <Title>Check Your Checks</Title>
+          <Title>CheckIT</Title>
         </Body>
         <Right>
           <Button transparent>

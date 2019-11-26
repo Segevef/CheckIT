@@ -49,13 +49,13 @@ export default function ImgPicker () {
             {isPickedImage 
             ?   <Button 
                     title="Take Another Photo" 
-                    color={Colors.primary} 
+                    color={Colors.accent} 
                     onPress={takeImageHandler} 
                     style={styles.button}
                 />
             :   <Button 
                     title="Add New Check" 
-                    color={Colors.primary} 
+                    color={Colors.accent} 
                     onPress={takeImageHandler} 
                     style={styles.button}
                 />
@@ -71,16 +71,9 @@ export default function ImgPicker () {
                 )}
 
             </View>
-            <View style={styles.imagePreview}>
+            <View style={styles.formPreview}>
                 {isPickedImage ? renderCheckInput() 
                                : <Image style={styles.image} source={require("../resources/img/money.jpg")}/>} 
-{/* 
-                {isPickedImage 
-                ? (
-                    image ? <CheckInput imageUri={image.uri} />
-                          : <CheckInput />
-                ) 
-                : <Image style={styles.image} source={require("../resources/img/money.jpg")}/>} */}
             </View>
             
         </View>
@@ -90,7 +83,7 @@ export default function ImgPicker () {
 const styles = StyleSheet.create({
     imagePicker: {
         alignItems: 'center',
-
+        marginBottom: 5
     },
     imagePreview: {
         width: '100%',
@@ -98,7 +91,17 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: Colors.primary,
+        borderColor: Colors.accent,
+        borderWidth: 1
+
+    },
+    formPreview: {
+        width: '100%',
+        height: 240,
+        marginBottom: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: Colors.accent,
         borderWidth: 1
 
     },
@@ -107,7 +110,9 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     button: {
-        marginBottom: 10
+        marginBottom: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
     
 

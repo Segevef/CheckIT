@@ -1,22 +1,33 @@
-import React from "react";
-import { Image, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Modal, TouchableHighlight, Button } from "react-native";
 import { Card, CardItem, Text, Body, View } from "native-base";
 import Colors from "../constants/colors.js";
 
 export default function CheckCard({name, amount , date, isDeposited, image}) {
 
-  const displayMoreDetails = () => {
-    return (
-      <View style={styles.moreDetailsView}>
-          <Image style={styles.imageMoreDetails} source={image}/>
-      </View>
-    );
-  }
+  const [displayDetails, setDisplayDetails] = useState(false);
 
   return (
-      <Card>
-        <CardItem button onPress={() => alert(`More details on ${name}'s check`)}>
+     <Card>
+        <CardItem button onPress={() => {setDisplayDetails(true)}}>
           <Body>
+
+              <Modal 
+                animationType="fade"
+                transparent={true}
+                visible={displayDetails}
+                style={styles.modal}
+              >
+                    <View style={styles.moreDetailsView}>
+                          <Button 
+                            onPress={() => setDisplayDetails(false) } 
+                            title="Back" 
+                            style={styles.buttonItem} 
+                          />
+                             <Image style={styles.imageMoreDetails} source={image}/>
+                    </View> 
+                </Modal>
+
             <View style={styles.body}>
               <Image
                 style={styles.image}
@@ -63,23 +74,29 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginLeft: 10,
     alignSelf: "center",
-    borderColor: Colors.primary
+    borderColor: Colors.accent
   },
   moreDetailsView: {
     position: 'absolute',
-    width: "80%",
-    height: "80%",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: "100%",
+    height: "100%",
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.8)',
   },
   imageMoreDetails: {
     width: "100%",
     height: 200
+  },
+  buttonItem: {
+    width: "100%",
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+    backgroundColor: Colors.accent,
+  },
+  modal: {
+    borderRadius: 5,
+    backgroundColor: Colors.accent,
   }
 
 });

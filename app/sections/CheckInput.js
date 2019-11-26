@@ -52,7 +52,7 @@ export default function CheckInput ({ imageUri }) {
                     <Label> Amount: </Label>
                     <Input keyboardType = 'numeric' onChangeText={ input => setAmount(input)}/>
                 </Item>
-                <Item style={styles.item}>
+                <Item style={styles.datePickerItem}>
                     <DatePicker
                         defaultDate={new Date(2018, 1, 1)}
                         locale={"en"}
@@ -68,7 +68,7 @@ export default function CheckInput ({ imageUri }) {
                 <Item style={styles.buttonItem}>
                     <Button 
                         title="Add This Check" 
-                        color={Colors.primary} 
+                        color={Colors.accent} 
                         onPress={addCheckToData} 
                         style={{marginTop: 10, marginBottom: 5}}
                     />
@@ -79,14 +79,20 @@ export default function CheckInput ({ imageUri }) {
 
 const styles = StyleSheet.create({
     item: {
-        width: "100%",
+        width: "90%",
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    datePickerItem: {
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        marginTop: 5,
+        marginBottom: 5,
     },
     buttonItem: {
         width: "100%",
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 30,
+        marginTop: 15,
     }
 })

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckCard from "../sections/CheckCard.js";
-import { ScrollView, View, StyleSheet } from "react-native";
+import { ScrollView, View, StyleSheet, Alert } from "react-native";
 import mockData from "../constants/mockData.js";
 import { Button, Text } from "native-base";
 import Colors from '../constants/colors.js'
@@ -46,7 +46,7 @@ export default function Dashboard() {
             </ScrollView>
         </View>
         <View style={{flex: 1}}>
-            <Button style={styles.buttonsBottom} disabled>
+            <Button style={styles.buttonsBottom} onPress={ () => Alert.alert("In Progress...")}>
                 <Text>Go To Statistics</Text>
             </Button>
         </View>
@@ -63,13 +63,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     buttonsTop: {
-        backgroundColor: Colors.primary,
+        backgroundColor: Colors.accent,
         marginLeft: 5,
         marginRight: 5,
     },
     buttonsBottom: {
-        backgroundColor: Colors.primary,
         marginTop: 10,
+        backgroundColor: Colors.accent,
         justifyContent: 'center',
     },
 

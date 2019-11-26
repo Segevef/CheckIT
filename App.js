@@ -9,6 +9,8 @@ import Home from './app/views/Home.js';
 I18nManager.allowRTL(false);
 
 export default class App extends React.Component {
+
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +27,7 @@ export default class App extends React.Component {
     });
     this.setState({ isReady: true });
   }
-
+  
   render() {
     if (!this.state.isReady) {
       return <AppLoading />;
