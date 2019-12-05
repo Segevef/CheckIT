@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, StatusBar } from "react-native";
+import { StyleSheet, StatusBar, Alert } from "react-native";
 import {
   Container,
   Header,
@@ -16,19 +16,19 @@ export default function AppHeader() {
     <Container>
       <Header style={styles.header}>
         <Left>
-          <Button transparent>
-            <Icon name="menu" />
+          <Button transparent >
+            <Icon name="menu"/>
           </Button>
         </Left>
         <Body style={styles.body}>
           <Title>CheckIT</Title>
         </Body>
         <Right>
-          <Button transparent>
+          {/* <Button transparent>
             <Icon name="search" />
-          </Button>
-          <Button transparent>
-            <Icon name="more" />
+          </Button> */}
+          <Button transparent >
+            <Icon name="more"/>
           </Button>
         </Right>
       </Header>

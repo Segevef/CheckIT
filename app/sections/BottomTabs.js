@@ -7,13 +7,13 @@ import Notifications from "../views/Notifications.js";
 import Colors from "../constants/colors.js";
 
 export default function BottomTabs() {
-  const [curPage, setCurPage] = useState("Dashboard");
+  const [curPage, setCurPage] = useState("הצ'קים שלי");
 
   return (
     <View style={styles.container}>
-      {curPage === "Dashboard" && <Dashboard />}
-      {curPage === "AddCheck" && <AddCheck />}
-      {curPage === "Notifications" && <Notifications />}
+      {curPage === "הצ'קים שלי" && <Dashboard />}
+      {curPage === "הוספת צ'ק" && <AddCheck />}
+      {curPage === "הודעות" && <Notifications />}
 
       <BottomTabBar
         stateFunc={tab => setCurPage(tab.page)}
@@ -25,19 +25,19 @@ export default function BottomTabs() {
         rippleEffect={true}
         tabs={[
           {
-            page: "Dashboard",
+            page: "הצ'קים שלי",
             icon: "home",
-            iconText: "Dashboard"
+            iconText: "הצ'קים שלי"
           },
           {
-            page: "AddCheck",
-            icon: "person",
-            iconText: "Add Check"
+            page: "הוספת צ'ק",
+            icon: "camera",
+            iconText: "הוספת צ'ק"
           },
           {
-            page: "Notifications",
+            page: "הודעות",
             icon: "notifications",
-            iconText: "Notifications",
+            iconText: "הודעות",
             badgeNumber: 2
           }
         ]}

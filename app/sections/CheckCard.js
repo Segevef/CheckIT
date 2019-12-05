@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, Modal, TouchableHighlight, Button } from "react-native";
-import { Card, CardItem, Text, Body, View } from "native-base";
+import { Image, StyleSheet, Modal } from "react-native";
+import { Card, CardItem, Text, Body, View, Button, Icon } from "native-base";
 import Colors from "../constants/colors.js";
 
 export default function CheckCard({name, amount , date, isDeposited, image}) {
@@ -20,10 +20,12 @@ export default function CheckCard({name, amount , date, isDeposited, image}) {
               >
                     <View style={styles.moreDetailsView}>
                           <Button 
-                            onPress={() => setDisplayDetails(false) } 
-                            title="Back" 
-                            style={styles.buttonItem} 
-                          />
+                            onPress={() => setDisplayDetails(false) }  
+                            rounded
+                          >
+                            <Icon name='arrow-back' />
+                            <Text>Back</Text>
+                          </Button>
                              <Image style={styles.imageMoreDetails} source={image}/>
                     </View> 
                 </Modal>
@@ -52,7 +54,7 @@ export default function CheckCard({name, amount , date, isDeposited, image}) {
                       : { color: "red" })
                   }
                 >
-                  {isDeposited ? "Deposited" : "Not Deposited"}
+                  {isDeposited ? "הופקד" : "טרם הופקד"}
                 </Text>
               </View>
             </View>

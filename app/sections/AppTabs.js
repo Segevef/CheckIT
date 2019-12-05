@@ -8,13 +8,13 @@ export default function AppTabs() {
   return (
     <Container>
       <Tabs>
-        <Tab heading="Dashboard">
+        <Tab heading="הצ'קים שלי">
           <Dashboard />
         </Tab>
-        <Tab heading="Add A Check">
+        <Tab heading="הוספת צ'ק">
           <AddCheck />
         </Tab>
-        <Tab heading="Notifications">
+        <Tab heading="הודעות">
           <Notifications />
         </Tab>
       </Tabs>

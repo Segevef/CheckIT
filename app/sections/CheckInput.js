@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Alert } from 'react-native' 
-import { Form, Item, Input, Label, Picker, DatePicker, Text } from 'native-base';
+import { StyleSheet, Alert, View } from 'react-native' 
+import { Form, Item, Input, Label, DatePicker, Text, Button } from 'native-base';
 import MockData from '../constants/mockData.js';
 import Colors from '../constants/colors.js';
-import * as FileSystem from 'expo-file-system';
 
 export default function CheckInput ({ imageUri }) {
 
@@ -12,6 +11,15 @@ export default function CheckInput ({ imageUri }) {
     const [amount, setAmount] = useState();
 
     const addCheckToData = async () => {
+            
+            if(isNaN(amount) || amount < 1) { 
+                Alert.alert("Amount not valid. Please enter a valid amount");
+                return;
+            }
+            if(origin === "") {
+                Alert.alert("Origin not valid. Please enter a valid origin");
+                return;
+            }
 
             MockData.unshift(
                 { 
@@ -28,7 +36,8 @@ export default function CheckInput ({ imageUri }) {
     }
 
     const amountChangeFormat = amount => {
-        return amount + '$'
+        let am = amount.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        return am + '₪'
     }
 
     const dateChangeFormat = date => {
@@ -45,33 +54,40 @@ export default function CheckInput ({ imageUri }) {
     return (
             <Form>
                 <Item floatingLabel style={styles.item}>
-                    <Label> Origin: </Label>
+                    <Label> שלמו ל </Label>
                     <Input onChangeText={ input => setOrigin(input)} />
                 </Item>
                 <Item floatingLabel style={styles.item}>
-                    <Label> Amount: </Label>
+                    <Label> סכום </Label>
                     <Input keyboardType = 'numeric' onChangeText={ input => setAmount(input)}/>
                 </Item>
                 <Item style={styles.datePickerItem}>
                     <DatePicker
-                        defaultDate={new Date(2018, 1, 1)}
+                        defaultDate={new Date(2019, 1, 1)}
                         locale={"en"}
                         timeZoneOffsetInMinutes={undefined}
                         modalTransparent={false}
                         animationType={"fade"}
                         androidMode={"default"}
-                        placeHolderText="Date:"
+                        placeHolderText="תאריך"
                         onDateChange={setDate}
                         disabled={false}
                     />
                 </Item>
                 <Item style={styles.buttonItem}>
-                    <Button 
-                        title="Add This Check" 
-                        color={Colors.accent} 
-                        onPress={addCheckToData} 
-                        style={{marginTop: 10, marginBottom: 5}}
-                    />
+                    <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                            <Button 
+                                transparent 
+                                rounded
+                                full 
+                                textStyle={Colors.primary}
+                                // color={Colors.accent} 
+                                onPress={addCheckToData} 
+                                // style={{marginTop: 10, marginBottom: 5}}
+                            >
+                                <Text>הוסף צ'ק</Text>
+                            </Button>
+                        </View>
                 </Item>
             </Form>
     );

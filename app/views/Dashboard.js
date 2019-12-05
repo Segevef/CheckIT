@@ -17,15 +17,22 @@ export default function Dashboard() {
         setChecks( mockData.filter(check => check.isDeposited === true))
     }
 
+    const showNotDepositedChecks = () => {
+        setChecks( mockData.filter(check => check.isDeposited === false))
+    }
+
   return (
     <View style={{flex: 1}}>
         <View style={{flex: 3}}>
             <View style={styles.buttonArea}>
-                <Button style={styles.buttonsTop} active onPress={showAllChecks}>
-                    <Text>All Checks</Text>
+                <Button rounded style={styles.buttonsTop} active onPress={showAllChecks}>
+                    <Text>כל הצ'קים</Text>
                 </Button>
-                <Button style={styles.buttonsTop} onPress={showDepositedChecks}>
-                    <Text>Deposited</Text>
+                <Button rounded style={styles.buttonsTop} onPress={showDepositedChecks}>
+                    <Text>שהופקדו</Text>
+                </Button>
+                <Button rounded style={styles.buttonsTop} onPress={showNotDepositedChecks}>
+                    <Text>טרם הופקדו</Text>
                 </Button>
             </View>
             <ScrollView style={{flex: 3}}>
@@ -46,9 +53,9 @@ export default function Dashboard() {
             </ScrollView>
         </View>
         <View style={{flex: 1}}>
-            <Button style={styles.buttonsBottom} onPress={ () => Alert.alert("In Progress...")}>
-                <Text>Go To Statistics</Text>
-            </Button>
+                <Button full bordered rounded style={styles.buttonsBottom} onPress={ () => Alert.alert("In Progress...")}>
+                    <Text>צפה בסטטיסטיקות</Text>
+                </Button>
         </View>
 
     </View>
@@ -63,13 +70,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     buttonsTop: {
-        backgroundColor: Colors.accent,
+        backgroundColor: Colors.primary,
         marginLeft: 5,
+        fontSize: 12,
         marginRight: 5,
     },
     buttonsBottom: {
         marginTop: 10,
-        backgroundColor: Colors.accent,
+        // backgroundColor: Colors.accent,
         justifyContent: 'center',
     },
 

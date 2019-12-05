@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { View, Button, Text, StyleSheet, Image, Alert } from 'react-native';
+import { View, StyleSheet, Image, Alert } from 'react-native';
+import { Button, Text } from 'native-base';
 import Colors from '../constants/colors.js'
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
@@ -46,20 +47,28 @@ export default function ImgPicker () {
 
     return (
         <View style={styles.imagePicker}>
-            {isPickedImage 
-            ?   <Button 
-                    title="Take Another Photo" 
-                    color={Colors.accent} 
-                    onPress={takeImageHandler} 
-                    style={styles.button}
-                />
-            :   <Button 
-                    title="Add New Check" 
-                    color={Colors.accent} 
-                    onPress={takeImageHandler} 
-                    style={styles.button}
-                />
-            }
+            <View style={{ marginBottom: 5, alignItems: 'center', justifyContent: 'center'}}>
+                {isPickedImage 
+                ?   <Button  
+                        rounded
+                        // title="Take Another Photo" 
+                        // color={Colors.accent} 
+                        onPress={takeImageHandler} 
+                        style={styles.button}
+                    >
+                        <Text>הוסף צ'ק נוסף</Text>
+                    </Button>
+                :   <Button
+                        rounded
+                        // title="Add New Check" 
+                        // color={Colors.accent} 
+                        onPress={takeImageHandler} 
+                        style={styles.button}
+                    >
+                        <Text>הוסף צ'ק חדש</Text>
+                    </Button>
+                }
+            </View>
             <View style={styles.imagePreview}>
                 {!pickedImage ? ( 
                     <Text>No check picked yet.</Text>
@@ -88,7 +97,7 @@ const styles = StyleSheet.create({
     imagePreview: {
         width: '100%',
         height: 200,
-        marginBottom: 10,
+        marginBottom: 5,
         justifyContent: 'center',
         alignItems: 'center',
         borderColor: Colors.accent,
@@ -112,8 +121,10 @@ const styles = StyleSheet.create({
     button: {
         marginBottom: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        fontSize: 16,
+        backgroundColor: Colors.primary,
+        padding: 5
     }
-    
 
 })
